@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <title>
+            Todoapp.com
+        </title>
+        <style>
+            body{
+    background-color: rgb(16, 29, 29);
+    font-family: 'poppins',Sans-Serif;
+  }
+  .Container{
+    width: 360px;
+    padding: 50px;
+    text-align: center;
+    background-color:white;
+    margin-left: 480px;
+    margin-right: 33px;
+    margin-top: 100px;
+    border-radius: 1px;
+    
+  }
+  input{
+    width: 270px;
+    padding: 8px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5PX;
+    font-size:19px ;
+    
+  }
+  button{
+    width: 60px;
+    height:41px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 19px;
+    border-radius: 5px;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  .Container h1{
+    margin-right: 20px;
+    margin-bottom: 30px;
+  }
+  .text ul{
+    position: relative;
+    border-radius: 2px;
+    outline: none;
+    background-color: rgb(0, 0, 0);
+    color:aliceblue;
+    font-size: 19px;
+    text-align: left;
+    padding: 7px;
+  }
+.text ul i{
+  position:absolute;
+  right: 10px;
+  cursor: pointer;
+  padding: 7px;
+  font-size: 14px;
+}
+        </style>
+        <script src="https://kit.fontawesome.com/2b414c346c.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="Container">
+            <h1>
+                MY TODO LIST
+            </h1>
+            <input type="text" placeholder="Enter your task" id="inp">
+            <button onclick="Add()">Go</button>
+            <div class="text">
+
+            </div>
+        </div>
+        <script>
+            let inputs = document.getElementById("inp");
+let text = document.querySelector(".text");
+function Add(){
+    if(inputs.value == "")
+    {
+        alert("Please Enter your Task")
+    }
+    else
+    {
+        let newEle = document.createElement("ul");
+        newEle.innerHTML = `${inputs.value}<i class="fa-solid fa-trash"></i>`;
+        text.appendChild(newEle); 
+        inputs.value="";
+        newEle.querySelector("i").addEventListener("click",remove);
+        function remove(){
+            newEle.remove()
+        }
+    }
+}
+        </script>
+    </body>
+</html>
